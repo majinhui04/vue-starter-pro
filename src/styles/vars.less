@@ -1,0 +1,57 @@
+@colorFont: #424242;
+@colorGrayLight: #bdbdbd;
+@colorGray: #666666;
+@colorRed: #ff0050;
+@colorWhite: #fff;
+@colorBlack: #333333;
+@colorBlueMain: #43a9f1;
+@colorBlueLight: #49b2f5;
+@colorBlueText: #0076ff;
+@colorOrange: #fe5c3b;
+@colorPrimary: #43a9f1;
+
+.flexbox(@arg...) {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    text-align: left;
+
+    .mixin(wrap) {
+        -webkit-box-lines: multiple;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    .mixin(v) {
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .mixin(align-center) {
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .mixin(justify-between) {
+        -webkit-box-pack: space-between;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+    }
+
+    .mixin(justify-center) {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+
+    //arguments在循环里变成了长度了
+    //解决办法：不要直接使用arguments，而是定义变量，并且是不限定长度的变量
+    .loop(@i) when (@i > 0) {
+        .loop((@i - 1));
+        .mixin(extract(@arg, @i));
+    }
+
+    .loop(length(@arguments));
+}

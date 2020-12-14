@@ -1,0 +1,91 @@
+/* 清除浮动 */
+.g-clearfix::after {
+    display: block;
+    clear: both;
+    content: '';
+}
+.c1 {
+    color: red;
+}
+* {
+    box-sizing: border-box;
+}
+.sg-link {
+    color: @colorPrimary;
+    text-decoration: none;
+}
+.sg-card {
+    position: relative;
+    margin-bottom: 15px;
+}
+.sg-tabs {
+    position: relative;
+}
+.sg-row {
+    margin-bottom: 7px;
+}
+.sg-row:last-child {
+    margin-bottom: 0;
+}
+.sg-color-gray-light {
+    color: @colorGrayLight;
+}
+.sg-color-primary {
+    color: @colorPrimary;
+}
+.sg-color-link,
+a.sg-color-link {
+    color: @colorPrimary;
+    text-decoration: none;
+}
+
+.sg-dialog {
+    .el-dialog__body {
+        padding-top: 0;
+    }
+}
+// box
+.sg-box {
+    padding: 15px;
+}
+
+.sg-box-head {
+    // border-bottom: 1px solid #ddd;
+    padding: 7px 0;
+    margin-bottom: 15px;
+}
+.sg-box-main {
+    position: relative;
+}
+.sg-tabs-action {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    z-index: 10;
+}
+.sg-headline {
+    .flexbox(align-center);
+    &::before {
+        content: ' ';
+        display: block;
+        line-height: 20px;
+        height: 18px;
+        width: 3px;
+        margin-right: 7px;
+        background-color: @colorPrimary;
+    }
+}
+.sg-headline-title {
+    color: @colorGray;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+body {
+    color: @colorBlack;
+}
+
+/*去除百度地图版权*/
+.anchorBL {
+    display: none;
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>方形</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="自定义预设-4" transform="translate(-219.000000, -8.000000)" fill="#0096F6">
+            <g id="方形" transform="translate(219.000000, 8.000000)">
+                <path d="M3,33 L3,37 L7,37 L7,39 L1,39 L1,33 L3,33 Z M39,33 L39,39 L33,39 L33,37 L37,37 L37,33 L39,33 Z M18,37 L18,39 L12,39 L12,37 L18,37 Z M29,37 L29,39 L23,39 L23,37 L29,37 Z M3,23 L3,29 L1,29 L1,23 L3,23 Z M39,23 L39,29 L37,29 L37,23 L39,23 Z M3,12 L3,18 L1,18 L1,12 L3,12 Z M39,12 L39,18 L37,18 L37,12 L39,12 Z M7,1 L7,3 L3,3 L3,7 L1,7 L1,1 L7,1 Z M39,1 L39,7 L37,7 L37,3 L33,3 L33,1 L39,1 Z M18,1 L18,3 L12,3 L12,1 L18,1 Z M29,1 L29,3 L23,3 L23,1 L29,1 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

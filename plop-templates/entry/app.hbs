@@ -1,0 +1,32 @@
+<template>
+    <div class="sg-box {{ properCase name }}">
+        <div class="sg-box-head header sg-flexbox justify-between">
+            <div class="sg-headline">
+                <span class="sg-headline-title">{{ title }}</span>
+            </div>
+        </div>
+        <div class="sg-box-main">
+            <el-card class="sg-card"></el-card>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: '{{ properCase name }}',
+    components: {},
+    data() {
+        return {}
+    },
+    computed: {},
+    watch: {},
+    created() {},
+    mounted() {},
+    methods: {},
+}
+</script>
+
+<style lang="less">
+.{{ properCase name }} {
+}
+</style>

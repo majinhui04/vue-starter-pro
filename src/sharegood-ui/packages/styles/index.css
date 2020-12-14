@@ -1,0 +1,127 @@
+@import 'var.css';
+@import 'layout.css';
+@import 'custom.css';
+.sg-page-form-container,
+.sg-dataview-container,
+.sg-table-container,
+.sg-pagination-container {
+    margin-bottom: 15px;
+}
+
+.sg-page-form .el-date-editor.el-input,
+.sg-page-form .el-date-editor.el-input__inner {
+    width: 100%;
+}
+.sg-page-form .el-form-item__label {
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sg-page-form .el-form-item {
+    display: flex;
+}
+.sg-page-form .el-form-item__content {
+    flex: 1;
+    display: flex;
+}
+.sg-page-form .el-row {
+    flex-wrap: wrap;
+}
+.sg-page-form .el-form-item__label {
+    white-space: nowrap;
+}
+.sg-page-form .el-select,
+.sg-page-form .el-cascader {
+    width: 100%;
+}
+.sg-page-form .sg-form-row {
+    margin-bottom: 0;
+}
+
+.sg-pagination-container.right {
+    text-align: right;
+}
+.sg-range-input {
+    flex: 1;
+}
+.sg-range-gap {
+    padding: 0 5px;
+}
+.sg-table-operation-wrap {
+    height: 200px;
+    overflow-y: auto;
+}
+.sg-table-operation-wrap .el-checkbox {
+    margin-bottom: 7px;
+}
+.sg-table-bar {
+    display: flex;
+    align-items: center;
+}
+.sg-sort-select {
+    width: 150px;
+    margin-right: 7px;
+}
+
+/* tip */
+.sg-custom-block {
+    padding: 7px;
+    border-width: 0;
+    border-left-width: 4px;
+    border-style: solid;
+    margin-bottom: 1rem;
+    font-size: 12px;
+}
+.sg-custom-block .title {
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+.sg-custom-block p {
+    line-height: 1.7;
+    margin: 0;
+}
+.sg-custom-block.tip {
+    background-color: #f3f5f7;
+    border-color: #c0c4cc;
+    color: #c0c4cc;
+}
+.sg-custom-block.warning {
+    background-color: rgba(255, 229, 100, 0.3);
+    border-color: #e7c000;
+    color: #6b5900;
+}
+.sg-custom-block.danger {
+    background-color: #ffe6e6;
+    border-color: #c00;
+    color: #4d0000;
+}
+
+.sg-chart-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    border: 1px solid #ddd;
+    margin-bottom: 14px;
+}
+.sg-chart-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    height: 40px;
+}
+.sg-chart-content {
+    flex: 1;
+}
+
+.sg-table-tooltip {
+    max-width: 500px;
+}
+.sg-table-txt-cut {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
