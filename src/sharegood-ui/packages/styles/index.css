@@ -1,6 +1,7 @@
 @import 'var.css';
 @import 'layout.css';
 @import 'custom.css';
+@import 'component.css';
 .sg-page-form-container,
 .sg-dataview-container,
 .sg-table-container,

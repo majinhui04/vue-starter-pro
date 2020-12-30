@@ -4,28 +4,6 @@ import exShowErrMessage from './exShowErrMessage'
 import exConsole from './exConsole'
 import exData from './exData'
 import qs from 'qs'
-console.log('window.location.href', window.location.href)
-function $parseQuery() {
-    let url = window.location.href
-    let params = url.split('?')[1]
-    if (params) {
-        let query = params.split('&')
-        let result = {}
-        query.forEach(item => {
-            const key = item.split('=')[0]
-            const value = item.split('=')[1]
-            result[key] = decodeURIComponent(value)
-        })
-        return result
-    } else {
-        return {}
-    }
-}
-// todo
-let ssid = $parseQuery()['hnxw_ssid'] || '123abc'
-// setTimeout(function(){
-//     ssid = '123abc'
-// },1300);
 
 const axiosRetryInterceptor = function(err) {
     // console.log('axiosRetryInterceptor',err.data,err.data.flag)
@@ -69,7 +47,7 @@ const requestHandle = function(config) {
     config.headers = config.headers || {}
     const headers = config.headers
     const ContentType = headers['Content-Type'] || ''
-    headers['hnxw_ssid'] = ssid
+
     // 只有 ‘application/x-www-form-urlencoded’模式才需要对post的data做序列化
     if (
         config.data &&

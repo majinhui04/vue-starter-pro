@@ -1,0 +1,57 @@
+/* 表单 */
+.sg-data-form-container {
+}
+.sg-data-form .el-date-editor.el-input,
+.sg-data-form .el-date-editor.el-input__inner {
+    width: 100%;
+}
+.sg-data-form .el-form-item__label {
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sg-data-form .el-form-item {
+    display: flex;
+}
+.sg-data-form .el-form-item__content {
+    flex: 1;
+    display: flex;
+    margin-left: 0 !important;
+}
+.sg-data-form .el-row {
+    flex-wrap: wrap;
+}
+.sg-data-form .el-form-item__label {
+    white-space: nowrap;
+}
+.sg-data-form .el-select,
+.sg-data-form .el-cascader {
+    width: 100%;
+}
+.sg-data-form .sg-form-row {
+    margin-bottom: 0;
+}
+.sg-data-form .sg-form-field {
+    width: 100%;
+}
+.sg-data-form-action {
+    text-align: center;
+}
+.sg-data-form-field {
+    width: 100%;
+}
+.sg-data-form.column .sg-form-item {
+    display: block;
+}
+.sg-data-form.column .el-form-item__label {
+    float: none;
+}
+.sg-data-form-header {
+}
+.sg-data-form-footer {
+    text-align: center;
+}
+/* .sg-data-form-field .el-textarea textarea:read-only,
+.sg-data-form-field .el-input input[readonly='true'] {
+    background-color: #ddd;
+} */

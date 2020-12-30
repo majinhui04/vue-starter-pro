@@ -28,12 +28,12 @@ window.addEventListener('unhandledrejection', function(event) {
     }
 })
 
-console.error = (func => {
-    return (...args) => {
-        const err = args[0] || {}
-        const { message } = err
-        // 在这里就可以收集到console.error的错误
-        // 做一些事情
-        func.apply(console, args)
-    }
-})(console.error)
+// console.error = (func => {
+//     return (...args) => {
+//         const err = args[0] || {}
+//         const { message } = err
+//         // 在这里就可以收集到console.error的错误
+//         // 做一些事情
+//         func.apply(console, args)
+//     }
+// })(console.error)

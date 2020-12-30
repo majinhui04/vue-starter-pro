@@ -8,6 +8,7 @@ import Upload from '../packages/upload/index.js'
 import PageForm from '../packages/page-form/index.js'
 import PageDialog from '../packages/page-dialog/index.js'
 import DataView from '../packages/data-view/index.js'
+import DataForm from '../packages/data-form/index.js'
 import Line from '../packages/charts/Line/index.js'
 import Pie from '../packages/charts/Pie/index.js'
 import Bar from '../packages/charts/Bar/index.js'
@@ -30,6 +31,7 @@ const components = [
     Loading,
     Upload,
     DataView,
+    DataForm,
 ]
 
 const install = function(Vue, opts = {}) {

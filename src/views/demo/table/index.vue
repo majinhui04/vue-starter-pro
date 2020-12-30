@@ -9,27 +9,17 @@
             :load="load"
             ref="tableRef"
             :hasBar="true"
+            :pagination="pagination"
         >
-            <el-table-column
-                label="标签"
-                prop="dom"
-                slot="dom"
-                align="center"
-                width="200"
-            >
-                <template slot-scope="scope">
-                    <el-tag
-                        type="warning"
-                        v-for="(tag, index) in scope.row['dom'].split(',')"
-                        :key="index"
-                        style="margin-right:5px"
-                        >{{ tag }}</el-tag
-                    >
-                </template>
-            </el-table-column>
-            <div slot="page-header">
-                <el-button>试试</el-button>
-            </div>
+            <template slot-scope="scope" slot="dom">
+                <el-tag
+                    type="warning"
+                    v-for="(tag, index) in scope.row['dom'].split(',')"
+                    :key="index"
+                    style="margin-right:5px"
+                    >{{ tag }}</el-tag
+                >
+            </template>
         </sg-data-view>
     </div>
 </template>
@@ -40,6 +30,24 @@ export default {
     components: {},
     data() {
         return {
+            pagination: {
+                page: 1,
+                pageSize: 10,
+                pageSizes: [10, 20, 50, 100, 200],
+                paramsSerializer(params = {}) {
+                    const result = {}
+                    result.no = params.page || 1
+                    result.size = params.pageSize
+                    delete params.page
+                    delete params.pageSize
+                    delete params.limit
+
+                    return {
+                        ...result,
+                        ...params,
+                    }
+                },
+            },
             query: {},
             selected: [], // 选中的公司id
             load: params => {
@@ -128,9 +136,10 @@ export default {
                 {
                     label: '标签',
                     prop: 'dom',
-                    type: 'slot',
+                    slotName: 'dom',
                     width: '200px',
                 },
+
                 {
                     label: '性别',
                     prop: 'gender',
@@ -197,6 +206,7 @@ export default {
             this.selected = [row]
         },
         onSelectionChange(val) {
+            console.log('onSelectionChange', val)
             this.selected = val
         },
     },

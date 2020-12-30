@@ -66,9 +66,9 @@
                 v-loading="listLoading"
                 :data="dataSource"
                 style="width: 100%;"
-                @selection-change="handleSelectionChange"
                 ref="table"
-                v-bind="exAttrs"
+                v-bind="$attrs"
+                v-on="$listeners"
             >
                 <template v-for="(col, index) in columns">
                     <template v-if="col.type === 'selection'">
@@ -91,6 +91,25 @@
                     </template>
                     <template v-else-if="col.type === 'slot'">
                         <slot :name="col.name || col.prop"></slot>
+                    </template>
+                    <template v-else-if="col.slotName">
+                        <el-table-column
+                            :label="col.label"
+                            :prop="col.prop"
+                            :align="col.align || 'center'"
+                            :key="index"
+                            :type="col.type"
+                            :width="col.width"
+                            :fixed="col.fixed || false"
+                        >
+                            <template slot-scope="scope">
+                                <slot
+                                    :name="col.slotName"
+                                    :row="scope.row"
+                                    :$index="scope.$index"
+                                ></slot>
+                            </template>
+                        </el-table-column>
                     </template>
                     <template v-else>
                         <el-table-column
@@ -397,15 +416,7 @@ export default {
 
             this.tableHeight = Math.max(minHeight, height)
         },
-        // 获取选中数据
-        getChecked() {
-            return this.multipleSelection
-        },
 
-        handleSelectionChange(val) {
-            this.multipleSelection = val
-            this.$emit('selection-change', val)
-        },
         scrollTop() {
             this.$nextTick(() => {
                 try {

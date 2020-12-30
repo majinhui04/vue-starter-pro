@@ -3,6 +3,9 @@
 
 <template>
     <div>
+        <el-row v-for="(row, index) in xx" :key="index">
+            {{ row }}
+        </el-row>
         <h1>This is an about page</h1>
         <p v-for="(item, index) in routes" :key="index">
             <router-link :to="item.path"
@@ -19,6 +22,7 @@ import routes from '@/router/routes'
 export default {
     data() {
         return {
+            xx: [{ name: 42122223 }],
             routes,
         }
     },

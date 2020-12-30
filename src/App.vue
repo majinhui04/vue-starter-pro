@@ -54,7 +54,7 @@ export default {
         }
     },
     created() {
-        console.log(11133,this.$routes)
+       
     },
     methods: {}
 };
