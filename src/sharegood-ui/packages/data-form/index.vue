@@ -233,7 +233,7 @@ export default {
     },
     computed: {
         exAttrs() {
-            return this.$attrs
+               return this.$attrs
         },
     },
     watch: {

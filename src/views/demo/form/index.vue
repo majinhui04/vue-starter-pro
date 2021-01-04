@@ -8,12 +8,16 @@
                 v-model="FormView1.model"
                 :span="8"
                 :gutter="0"
+                ref="myForm1"
             >
                 <el-radio-group v-model="FormView1.model.status" slot="status">
                     <el-radio-button label="1">已分配</el-radio-button>
                     <el-radio-button label="2">未分配</el-radio-button>
                 </el-radio-group>
-                <div slot="sp">特殊组件业务逻辑</div>
+
+                <div slot="sp">
+                    <el-button>萨卡死了打卡大</el-button>
+                </div>
             </sg-data-form>
         </section>
 
@@ -98,7 +102,7 @@ export default {
                     {
                         fieldType: 'slot',
                         slotName: 'sp',
-                        label: '特殊组件',
+                        label: '特殊组件十斤啊靠的就是卡德加卡萨',
                         class: 'form-item-sp',
                     },
                     {
@@ -109,7 +113,7 @@ export default {
                         fieldType: 'date',
                         type: 'daterange',
                         name: 'date',
-                        label: '操作日期',
+                        label: '操作日期jsajdajkdj撒娇萨克的金卡达',
                         placeholder: '事实上',
                         'value-format': 'yyyy-MM-dd',
                         'start-placeholder': '开始时间',
@@ -121,7 +125,7 @@ export default {
                         name: 'resourceName',
                         label: '资源名称',
                         placeholder: '请输入',
-                        value: '初始值',
+                        //value: '初始值',
                     },
                     {
                         fieldType: 'input',
@@ -311,6 +315,7 @@ export default {
                                 placeholder: '请选择',
                                 onChange: async res => {
                                     const { value } = res
+                                    console.log(111, res)
                                     this.FormView2.model.city = ''
                                     const result = await this.fetchCityData({
                                         value,
@@ -501,8 +506,8 @@ export default {
                         label: '活动名称',
                         placeholder: '请输入',
                         slotType: 'appendSlot',
-                        class: 'form-item-name',
                         slotName: 'name-append',
+                        class: 'form-item-name',
                     },
                     {
                         fieldType: 'select',
@@ -562,6 +567,7 @@ export default {
                         {
                             label: '浙江省',
                             value: '1',
+                            mode: {},
                         },
                         {
                             label: '湖南省',

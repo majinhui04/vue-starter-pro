@@ -1,0 +1,1164 @@
+<!DOCTYPE html><html><head>
+      <title>data-form</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/majinhui/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.14/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 class="mume-header" id="%E5%8A%A8%E6%80%81%E8%A1%A8%E5%8D%95">&#x52A8;&#x6001;&#x8868;&#x5355;</h2>
+
+<h3 class="mume-header" id="%E5%9F%BA%E7%A1%80%E5%B1%9E%E6%80%A7">&#x57FA;&#x7840;&#x5C5E;&#x6027;</h3>
+
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x53EF;&#x9009;&#x503C;</th>
+<th>&#x9ED8;&#x8BA4;&#x503C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fields</td>
+<td>&#x8868;&#x5355;&#x6570;&#x636E;</td>
+<td>Array</td>
+<td>&#x2014;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>rules</td>
+<td>&#x6821;&#x9A8C;&#x89C4;&#x5219;</td>
+<td>Object</td>
+<td>&#x2014;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>labelWidth</td>
+<td>&#x5168;&#x5C40; label &#x5BBD;&#x5EA6;</td>
+<td>[Number, String]</td>
+<td>&#x2014;</td>
+<td>120px</td>
+</tr>
+<tr>
+<td>type</td>
+<td>&#x5E03;&#x5C40;&#x6A21;&#x5F0F;</td>
+<td>String</td>
+<td>&#x2014;</td>
+<td>flex</td>
+</tr>
+<tr>
+<td>span</td>
+<td>&#x6BCF;&#x5217;&#x5BBD;&#x5EA6;</td>
+<td>[Number, String]</td>
+<td>[1,24]</td>
+<td>8</td>
+</tr>
+<tr>
+<td>justify</td>
+<td>&#x6C34;&#x5E73;&#x5E03;&#x5C40;</td>
+<td>String</td>
+<td>&#x2014;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>isFieldInline</td>
+<td>&#x8868;&#x5355;&#x57DF;&#x5E03;&#x5C40;</td>
+<td>Boolean</td>
+<td>&#x2014;</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="%E6%96%B9%E6%B3%95">&#x65B9;&#x6CD5;</h3>
+
+<table>
+<thead>
+<tr>
+<th>&#x4E8B;&#x4EF6;&#x540D;&#x79F0;</th>
+<th>&#x8BF4;&#x660E;</th>
+<th>&#x56DE;&#x8C03;&#x53C2;&#x6570;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>validate</td>
+<td>&#x6821;&#x9A8C;&#x6570;&#x636E;</td>
+<td></td>
+</tr>
+<tr>
+<td>reset</td>
+<td>&#x91CD;&#x7F6E;&#x6570;&#x636E;</td>
+<td></td>
+</tr>
+<tr>
+<td>setFieldData</td>
+<td>&#x91CD;&#x7F6E;&#x6570;&#x636E;</td>
+<td>name,data</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="%E4%BA%8B%E4%BB%B6">&#x4E8B;&#x4EF6;</h3>
+
+<table>
+<thead>
+<tr>
+<th>&#x4E8B;&#x4EF6;&#x540D;&#x79F0;</th>
+<th>&#x8BF4;&#x660E;</th>
+<th>&#x56DE;&#x8C03;&#x53C2;&#x6570;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>submit</td>
+<td>&#x63D0;&#x4EA4;&#x6570;&#x636E;</td>
+<td></td>
+</tr>
+<tr>
+<td>reset</td>
+<td>&#x6570;&#x636E;&#x91CD;&#x7F6E;</td>
+<td></td>
+</tr>
+<tr>
+<td>update</td>
+<td>&#x6570;&#x636E;&#x53D8;&#x5316;</td>
+<td>(name,value)</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="%E8%A1%A8%E5%8D%95%E5%9F%9F%E5%B1%9E%E6%80%A7">&#x8868;&#x5355;&#x57DF;&#x5C5E;&#x6027;</h3>
+
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x53EF;&#x9009;&#x503C;</th>
+<th>&#x9ED8;&#x8BA4;&#x503C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fieldType</td>
+<td></td>
+<td></td>
+<td>&#x2014;</td>
+<td>[&apos;input&apos;,&apos;select&apos;,&apos;date&apos;,&apos;checkbox&apos;,&apos;radio&apos;,&apos;slot&apos;,&apos;action&apos;]</td>
+</tr>
+<tr>
+<td>slotName</td>
+<td>&#x5BF9;&#x5E94;&#x7684;&#x63D2;&#x69FD;</td>
+<td></td>
+<td>&#x2014;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>label</td>
+<td>&#x8868;&#x5355;&#x540D;&#x79F0;</td>
+<td></td>
+<td>&#x2014;</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>&#x8868;&#x5355; key</td>
+<td></td>
+<td>&#x2014;</td>
+<td></td>
+</tr>
+<tr>
+<td>span</td>
+<td>&#x5217;&#x5BBD;</td>
+<td>[Number, Function]</td>
+<td>[1,24]</td>
+<td></td>
+</tr>
+<tr>
+<td>class</td>
+<td>&#x81EA;&#x5B9A;&#x4E49;&#x5217; Class</td>
+<td></td>
+<td>&#x2014;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>&#x5360;&#x4F4D;</td>
+<td></td>
+<td>&#x2014;</td>
+<td></td>
+</tr>
+<tr>
+<td>visible</td>
+<td>&#x662F;&#x5426;&#x663E;&#x793A;</td>
+<td></td>
+<td>&#x2014;</td>
+<td>true</td>
+</tr>
+<tr>
+<td>onChange</td>
+<td>&#x6570;&#x636E;&#x53D8;&#x5316;</td>
+<td>Function</td>
+<td>&#x2014;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>my-page DemoForm<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>example<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>&#x67E5;&#x8BE2;&#x8868;&#x5355;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>result<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ FormView1.model }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sg-data-form</span>
+                <span class="token attr-name">:fields</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>FormView1.fields<span class="token punctuation">&quot;</span></span>
+                <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>FormView1.model<span class="token punctuation">&quot;</span></span>
+                <span class="token attr-name">:span</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>8<span class="token punctuation">&quot;</span></span>
+                <span class="token attr-name">:gutter</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span>
+            <span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-radio-group</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>FormView1.model.status<span class="token punctuation">&quot;</span></span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>status<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-radio-button</span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x5DF2;&#x5206;&#x914D;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-radio-button</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-radio-button</span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>2<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x672A;&#x5206;&#x914D;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-radio-button</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-radio-group</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>sp<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x7279;&#x6B8A;&#x7EC4;&#x4EF6;&#x4E1A;&#x52A1;&#x903B;&#x8F91;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sg-data-form</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>example<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>&#x63D0;&#x4EA4;&#x8868;&#x5355;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>result<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ FormView2.model }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>example-dialog<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sg-data-form</span>
+                    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>my-submit-form<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">:fields</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>FormView2.fields<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>FormView2.model<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">:rules</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>FormView2.rules<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">:span</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>12<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">:gutter</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>myForm<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">@submit</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>onSubmit<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">@reset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>onReset<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">@update</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>onUpdate<span class="token punctuation">&quot;</span></span>
+                <span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>name-input-append<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x5929;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>desc-append<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                        &#x63D0;&#x793A;&#xFF1A; &#x8FD9;&#x91CC;&#x7684;&#x6587;&#x5B57;&#x4E0D;&#x80FD;&#x5305;&#x542B;&#x7279;&#x6B8A;&#x5B57;&#x7B26;
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>sp<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-rate</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>FormView2.model.rate<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-rate</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sg-data-form</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>example<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>&#x7AD6;&#x7ACB;&#x8868;&#x5355;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>result<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ FormView3.model }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>example-dialog<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sg-data-form</span>
+                    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>my-submit-form<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">:fields</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>FormView3.fields<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>FormView3.model<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">:rules</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>FormView3.rules<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">:span</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>24<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">:gutter</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>myForm3<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">:isFieldInline</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>false<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">@submit</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>onSubmit<span class="token punctuation">&quot;</span></span>
+                    <span class="token attr-name">@reset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>onReset<span class="token punctuation">&quot;</span></span>
+                <span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>sp<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-rate</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>FormView3.model.rate<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-rate</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>name-append<span class="token punctuation">&quot;</span></span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>name-append<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span><span class="token punctuation">&gt;</span></span>&#x83B7;&#x53D6;&#x77ED;&#x4FE1;&#x9A8C;&#x8BC1;&#x7801;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>desc-append<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                        &#x63D0;&#x793A;&#xFF1A; &#x8FD9;&#x91CC;&#x7684;&#x6587;&#x5B57;&#x4E0D;&#x80FD;&#x5305;&#x542B;&#x7279;&#x6B8A;&#x5B57;&#x7B26;
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>footer<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>primary<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x4FDD;&#x5B58;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>primary<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x53D1;&#x5E03;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x9884;&#x89C8;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleReset<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x91CD;&#x7F6E;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sg-data-form</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+    <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+        name<span class="token operator">:</span> <span class="token string">&apos;DemoForm&apos;</span><span class="token punctuation">,</span>
+        components<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+                <span class="token maybe-class-name">FormView1</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    model<span class="token operator">:</span> <span class="token punctuation">{</span>
+                        status<span class="token operator">:</span> <span class="token string">&apos;1&apos;</span><span class="token punctuation">,</span>
+                        resourceName<span class="token operator">:</span> <span class="token string">&apos;222&apos;</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;slot&apos;</span><span class="token punctuation">,</span>
+                            slotName<span class="token operator">:</span> <span class="token string">&apos;sp&apos;</span><span class="token punctuation">,</span>
+                            label<span class="token operator">:</span> <span class="token string">&apos;&#x7279;&#x6B8A;&#x7EC4;&#x4EF6;&apos;</span><span class="token punctuation">,</span>
+                            <span class="token keyword">class</span><span class="token operator">:</span> <span class="token string">&apos;form-item-sp&apos;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            slotName<span class="token operator">:</span> <span class="token string">&apos;status&apos;</span><span class="token punctuation">,</span>
+                            <span class="token keyword">class</span><span class="token operator">:</span> <span class="token string">&apos;form-item-status&apos;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;date&apos;</span><span class="token punctuation">,</span>
+                            type<span class="token operator">:</span> <span class="token string">&apos;daterange&apos;</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">&apos;date&apos;</span><span class="token punctuation">,</span>
+                            label<span class="token operator">:</span> <span class="token string">&apos;&#x64CD;&#x4F5C;&#x65E5;&#x671F;&apos;</span><span class="token punctuation">,</span>
+                            placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x4E8B;&#x5B9E;&#x4E0A;&apos;</span><span class="token punctuation">,</span>
+                            <span class="token string">&apos;value-format&apos;</span><span class="token operator">:</span> <span class="token string">&apos;yyyy-MM-dd&apos;</span><span class="token punctuation">,</span>
+                            <span class="token string">&apos;start-placeholder&apos;</span><span class="token operator">:</span> <span class="token string">&apos;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&apos;</span><span class="token punctuation">,</span>
+                            <span class="token string">&apos;end-placeholder&apos;</span><span class="token operator">:</span> <span class="token string">&apos;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&apos;</span><span class="token punctuation">,</span>
+                            <span class="token comment">//value: [&apos;2020-12-1&apos;, &apos;2020-12-10&apos;],</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;input&apos;</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">&apos;resourceName&apos;</span><span class="token punctuation">,</span>
+                            label<span class="token operator">:</span> <span class="token string">&apos;&#x8D44;&#x6E90;&#x540D;&#x79F0;&apos;</span><span class="token punctuation">,</span>
+                            placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x8F93;&#x5165;&apos;</span><span class="token punctuation">,</span>
+                            value<span class="token operator">:</span> <span class="token string">&apos;&#x521D;&#x59CB;&#x503C;&apos;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;input&apos;</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">&apos;loginName&apos;</span><span class="token punctuation">,</span>
+                            label<span class="token operator">:</span> <span class="token string">&apos;&#x767B;&#x5F55;&#x540D;&apos;</span><span class="token punctuation">,</span>
+                            placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x8F93;&#x5165;&apos;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;select&apos;</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">&apos;resourceType&apos;</span><span class="token punctuation">,</span>
+                            label<span class="token operator">:</span> <span class="token string">&apos;&#x8D44;&#x6E90;&#x7C7B;&#x578B;&apos;</span><span class="token punctuation">,</span>
+                            placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&apos;</span><span class="token punctuation">,</span>
+                            options<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;url&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token string">&apos;1&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;dom&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token string">&apos;2&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;input&apos;</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">&apos;resourceName1&apos;</span><span class="token punctuation">,</span>
+                            label<span class="token operator">:</span> <span class="token string">&apos;&#x8D44;&#x6E90;&#x540D;&#x79F0;12&apos;</span><span class="token punctuation">,</span>
+                            placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x8F93;&#x5165;&apos;</span><span class="token punctuation">,</span>
+                            visible<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token function">span</span><span class="token punctuation">(</span><span class="token parameter">rows</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>rows<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">fields</span><span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&gt;</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                    <span class="token keyword control-flow">return</span> <span class="token number">24</span>
+                                <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+                                    <span class="token keyword control-flow">return</span> <span class="token number">8</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;action&apos;</span><span class="token punctuation">,</span>
+                            value<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    isSubmit<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                    type<span class="token operator">:</span> <span class="token string">&apos;primary&apos;</span><span class="token punctuation">,</span>
+
+                                    text<span class="token operator">:</span> <span class="token string">&apos;&#x67E5;&#x8BE2;&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    isReset<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                    type<span class="token operator">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span>
+                                    text<span class="token operator">:</span> <span class="token string">&apos;&#x91CD;&#x7F6E;&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    isMore<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                    type<span class="token operator">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span>
+                                    text<span class="token operator">:</span> <span class="token string">&apos;&#x66F4;&#x591A;&#x6761;&#x4EF6;&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token maybe-class-name">FormView2</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    model<span class="token operator">:</span> <span class="token punctuation">{</span>
+                        resource<span class="token operator">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span>
+                        rate<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+                        xxx<span class="token operator">:</span> <span class="token string">&apos;&#x4E0D;&#x80FD;&#x6539;&apos;</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+                        name<span class="token operator">:</span> <span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x8F93;&#x5165;&#x6D3B;&#x52A8;&#x540D;&#x79F0;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;blur&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">{</span>
+                                min<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+                                max<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x957F;&#x5EA6;&#x5728; 3 &#x5230; 5 &#x4E2A;&#x5B57;&#x7B26;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;blur&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        region<span class="token operator">:</span> <span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&#x6D3B;&#x52A8;&#x533A;&#x57DF;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;change&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+                        type<span class="token operator">:</span> <span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                type<span class="token operator">:</span> <span class="token string">&apos;array&apos;</span><span class="token punctuation">,</span>
+                                required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x81F3;&#x5C11;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6D3B;&#x52A8;&#x6027;&#x8D28;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;blur&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        resource<span class="token operator">:</span> <span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&#x6D3B;&#x52A8;&#x8D44;&#x6E90;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;change&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        desc<span class="token operator">:</span> <span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x586B;&#x5199;&#x6D3B;&#x52A8;&#x5F62;&#x5F0F;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;blur&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+                    fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;slot&apos;</span><span class="token punctuation">,</span>
+                                    slotName<span class="token operator">:</span> <span class="token string">&apos;sp&apos;</span><span class="token punctuation">,</span>
+                                    span<span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span>
+
+                                    name<span class="token operator">:</span> <span class="token string">&apos;sp&apos;</span><span class="token punctuation">,</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x7279;&#x6B8A;&#x7EC4;&#x4EF6;&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;input&apos;</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">&apos;name&apos;</span><span class="token punctuation">,</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x6D3B;&#x52A8;&#x540D;&#x79F0;&apos;</span><span class="token punctuation">,</span>
+                                    placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x8F93;&#x5165;&apos;</span><span class="token punctuation">,</span>
+                                    slotName<span class="token operator">:</span> <span class="token string">&apos;name-input-append&apos;</span><span class="token punctuation">,</span>
+                                    slotType<span class="token operator">:</span> <span class="token string">&apos;suffix&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;select&apos;</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">&apos;region&apos;</span><span class="token punctuation">,</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x6D3B;&#x52A8;&#x533A;&#x57DF;&apos;</span><span class="token punctuation">,</span>
+                                    placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&apos;</span><span class="token punctuation">,</span>
+                                    options<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                        <span class="token punctuation">{</span>
+                                            label<span class="token operator">:</span> <span class="token string">&apos;&#x533A;&#x57DF;&#x4E00;&apos;</span><span class="token punctuation">,</span>
+                                            value<span class="token operator">:</span> <span class="token string">&apos;1&apos;</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">{</span>
+                                            label<span class="token operator">:</span> <span class="token string">&apos;&#x533A;&#x57DF;&#x4E8C;&apos;</span><span class="token punctuation">,</span>
+                                            value<span class="token operator">:</span> <span class="token string">&apos;2&apos;</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;input&apos;</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">&apos;phone&apos;</span><span class="token punctuation">,</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x624B;&#x673A;&#x53F7;&#x7801;&apos;</span><span class="token punctuation">,</span>
+                                    placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x8F93;&#x5165;&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;radio&apos;</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">&apos;resource&apos;</span><span class="token punctuation">,</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x7279;&#x6B8A;&#x8D44;&#x6E90;&apos;</span><span class="token punctuation">,</span>
+
+                                    options<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                        <span class="token punctuation">{</span>
+                                            label<span class="token operator">:</span> <span class="token string">&apos;&#x7EBF;&#x4E0A;&#x54C1;&#x724C;&#x8D5E;&#x52A9;&apos;</span><span class="token punctuation">,</span>
+                                            value<span class="token operator">:</span> <span class="token string">&apos;1&apos;</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">{</span>
+                                            label<span class="token operator">:</span> <span class="token string">&apos;&#x7EBF;&#x4E0B;&#x573A;&#x5730;&#x514D;&#x8D39;&apos;</span><span class="token punctuation">,</span>
+                                            value<span class="token operator">:</span> <span class="token string">&apos;2&apos;</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    span<span class="token operator">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;select&apos;</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">&apos;province&apos;</span><span class="token punctuation">,</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x7701;&#x4EFD;&apos;</span><span class="token punctuation">,</span>
+                                    placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&apos;</span><span class="token punctuation">,</span>
+                                    <span class="token function-variable function">onChange</span><span class="token operator">:</span> <span class="token keyword">async</span> <span class="token parameter">res</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                                        <span class="token keyword">const</span> <span class="token punctuation">{</span> value <span class="token punctuation">}</span> <span class="token operator">=</span> res
+                                        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access"><span class="token maybe-class-name">FormView2</span></span><span class="token punctuation">.</span><span class="token property-access">model</span><span class="token punctuation">.</span><span class="token property-access">city</span> <span class="token operator">=</span> <span class="token string">&apos;&apos;</span>
+                                        <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">fetchCityData</span><span class="token punctuation">(</span>
+                                            <span class="token punctuation">{</span>
+                                                value<span class="token punctuation">,</span>
+                                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">)</span>
+                                        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$refs</span><span class="token punctuation">[</span><span class="token string">&apos;myForm&apos;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">setFieldData</span><span class="token punctuation">(</span>
+                                            <span class="token string">&apos;city&apos;</span><span class="token punctuation">,</span>
+                                            result<span class="token punctuation">,</span>
+                                        <span class="token punctuation">)</span>
+                                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                    <span class="token function-variable function">options</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                                        <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">fetchProvinceData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    span<span class="token operator">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;select&apos;</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">&apos;city&apos;</span><span class="token punctuation">,</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x5E02;&apos;</span><span class="token punctuation">,</span>
+                                    placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&apos;</span><span class="token punctuation">,</span>
+                                    <span class="token function-variable function">onChange</span><span class="token operator">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> value <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                                        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access"><span class="token maybe-class-name">FormView2</span></span><span class="token punctuation">.</span><span class="token property-access">model</span><span class="token punctuation">.</span><span class="token property-access">district</span> <span class="token operator">=</span> <span class="token string">&apos;&apos;</span>
+                                        <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">fetchDistrictData</span><span class="token punctuation">(</span>
+                                            <span class="token punctuation">{</span>
+                                                value<span class="token punctuation">,</span>
+                                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">)</span>
+                                        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$refs</span><span class="token punctuation">[</span><span class="token string">&apos;myForm&apos;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">setFieldData</span><span class="token punctuation">(</span>
+                                            <span class="token string">&apos;district&apos;</span><span class="token punctuation">,</span>
+                                            result<span class="token punctuation">,</span>
+                                        <span class="token punctuation">)</span>
+                                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                    options<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    span<span class="token operator">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;select&apos;</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">&apos;district&apos;</span><span class="token punctuation">,</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x533A;&#x57DF;&apos;</span><span class="token punctuation">,</span>
+                                    placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&apos;</span><span class="token punctuation">,</span>
+                                    options<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;checkbox&apos;</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">&apos;type&apos;</span><span class="token punctuation">,</span>
+                                    span<span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x6D3B;&#x52A8;&#x6027;&#x8D28;&apos;</span><span class="token punctuation">,</span>
+
+                                    options<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                        <span class="token punctuation">{</span>
+                                            label<span class="token operator">:</span> <span class="token string">&apos;&#x7F8E;&#x98DF;/&#x9910;&#x5385;&#x7EBF;&#x4E0A;&#x6D3B;&#x52A8;&apos;</span><span class="token punctuation">,</span>
+                                            value<span class="token operator">:</span> <span class="token string">&apos;1&apos;</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">{</span>
+                                            label<span class="token operator">:</span> <span class="token string">&apos;&#x5730;&#x63A8;&#x6D3B;&#x52A8;&apos;</span><span class="token punctuation">,</span>
+                                            value<span class="token operator">:</span> <span class="token string">&apos;2&apos;</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">{</span>
+                                            label<span class="token operator">:</span> <span class="token string">&apos;&#x7EBF;&#x4E0B;&#x4E3B;&#x9898;&#x6D3B;&#x52A8;&apos;</span><span class="token punctuation">,</span>
+                                            value<span class="token operator">:</span> <span class="token string">&apos;3&apos;</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">{</span>
+                                            label<span class="token operator">:</span> <span class="token string">&apos;&#x5355;&#x7EAF;&#x54C1;&#x724C;&#x66DD;&#x5149;&apos;</span><span class="token punctuation">,</span>
+                                            value<span class="token operator">:</span> <span class="token string">&apos;4&apos;</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">{</span>
+                                            label<span class="token operator">:</span> <span class="token string">&apos;&#x5C11;&#x65F6;&#x8BF5;&#x8BD7;&#x4E66;&#x8428;&#x8FBE;&#x5927;&#x6240;&#x591A;&apos;</span><span class="token punctuation">,</span>
+                                            value<span class="token operator">:</span> <span class="token string">&apos;5&apos;</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;input&apos;</span><span class="token punctuation">,</span>
+
+                                    name<span class="token operator">:</span> <span class="token string">&apos;xxx&apos;</span><span class="token punctuation">,</span>
+                                    disabled<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                    span<span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x53EA;&#x8BFB;&#x5B57;&#x6BB5;&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;input&apos;</span><span class="token punctuation">,</span>
+                                    type<span class="token operator">:</span> <span class="token string">&apos;textarea&apos;</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">&apos;desc&apos;</span><span class="token punctuation">,</span>
+                                    <span class="token keyword">class</span><span class="token operator">:</span> <span class="token string">&apos;form-item-desc&apos;</span><span class="token punctuation">,</span>
+                                    span<span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x586B;&#x5199;&#x6D3B;&#x52A8;&#x7684;&#x5F62;&#x5F0F;&#x662F;&#x600E;&#x4E48;&#x5C11;&#x65F6;&#x8BF5;&#x8BD7;&#x4E66;&apos;</span><span class="token punctuation">,</span>
+                                    maxlength<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+                                    <span class="token string">&apos;show-word-limit&apos;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    span<span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span>
+                                    fieldType<span class="token operator">:</span> <span class="token string">&apos;action&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                        <span class="token punctuation">{</span>
+                                            isSubmit<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                            type<span class="token operator">:</span> <span class="token string">&apos;primary&apos;</span><span class="token punctuation">,</span>
+
+                                            text<span class="token operator">:</span> <span class="token string">&apos;&#x63D0;&#x4EA4;&apos;</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">{</span>
+                                            isReset<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                            type<span class="token operator">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span>
+                                            text<span class="token operator">:</span> <span class="token string">&apos;&#x91CD;&#x7F6E;&apos;</span><span class="token punctuation">,</span>
+                                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token maybe-class-name">FormView3</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    model<span class="token operator">:</span> <span class="token punctuation">{</span>
+                        resource<span class="token operator">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span>
+                        rate<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+                        xxx<span class="token operator">:</span> <span class="token string">&apos;&#x4E0D;&#x80FD;&#x6539;&apos;</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+                        name<span class="token operator">:</span> <span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x8F93;&#x5165;&#x6D3B;&#x52A8;&#x540D;&#x79F0;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;blur&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">{</span>
+                                min<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+                                max<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x957F;&#x5EA6;&#x5728; 3 &#x5230; 5 &#x4E2A;&#x5B57;&#x7B26;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;blur&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        region<span class="token operator">:</span> <span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&#x6D3B;&#x52A8;&#x533A;&#x57DF;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;change&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+                        type<span class="token operator">:</span> <span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                type<span class="token operator">:</span> <span class="token string">&apos;array&apos;</span><span class="token punctuation">,</span>
+                                required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x81F3;&#x5C11;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6D3B;&#x52A8;&#x6027;&#x8D28;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;blur&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        resource<span class="token operator">:</span> <span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&#x6D3B;&#x52A8;&#x8D44;&#x6E90;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;change&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        desc<span class="token operator">:</span> <span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                                message<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x586B;&#x5199;&#x6D3B;&#x52A8;&#x5F62;&#x5F0F;&apos;</span><span class="token punctuation">,</span>
+                                trigger<span class="token operator">:</span> <span class="token string">&apos;blur&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+                    fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;slot&apos;</span><span class="token punctuation">,</span>
+                            slotName<span class="token operator">:</span> <span class="token string">&apos;sp&apos;</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">&apos;sp&apos;</span><span class="token punctuation">,</span>
+                            label<span class="token operator">:</span> <span class="token string">&apos;&#x7279;&#x6B8A;&#x7EC4;&#x4EF6;&apos;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;input&apos;</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">&apos;name&apos;</span><span class="token punctuation">,</span>
+                            label<span class="token operator">:</span> <span class="token string">&apos;&#x6D3B;&#x52A8;&#x540D;&#x79F0;&apos;</span><span class="token punctuation">,</span>
+                            placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x8F93;&#x5165;&apos;</span><span class="token punctuation">,</span>
+                            slotType<span class="token operator">:</span> <span class="token string">&apos;appendSlot&apos;</span><span class="token punctuation">,</span>
+                            <span class="token keyword">class</span><span class="token operator">:</span> <span class="token string">&apos;form-item-name&apos;</span><span class="token punctuation">,</span>
+                            slotName<span class="token operator">:</span> <span class="token string">&apos;name-append&apos;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;select&apos;</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">&apos;region&apos;</span><span class="token punctuation">,</span>
+                            label<span class="token operator">:</span> <span class="token string">&apos;&#x6D3B;&#x52A8;&#x533A;&#x57DF;&apos;</span><span class="token punctuation">,</span>
+                            placeholder<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&apos;</span><span class="token punctuation">,</span>
+                            options<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x533A;&#x57DF;&#x4E00;&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token string">&apos;1&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x533A;&#x57DF;&#x4E8C;&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token string">&apos;2&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;radio&apos;</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">&apos;resource&apos;</span><span class="token punctuation">,</span>
+                            label<span class="token operator">:</span> <span class="token string">&apos;&#x7279;&#x6B8A;&#x8D44;&#x6E90;&apos;</span><span class="token punctuation">,</span>
+
+                            options<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x7EBF;&#x4E0A;&#x54C1;&#x724C;&#x8D5E;&#x52A9;&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token string">&apos;1&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x7EBF;&#x4E0B;&#x573A;&#x5730;&#x514D;&#x8D39;&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token string">&apos;2&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+                        <span class="token punctuation">{</span>
+                            fieldType<span class="token operator">:</span> <span class="token string">&apos;input&apos;</span><span class="token punctuation">,</span>
+                            type<span class="token operator">:</span> <span class="token string">&apos;textarea&apos;</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">&apos;desc&apos;</span><span class="token punctuation">,</span>
+                            label<span class="token operator">:</span> <span class="token string">&apos;&#x8BF7;&#x586B;&#x5199;&#x6D3B;&#x52A8;&#x7684;&#x5F62;&#x5F0F;&#x662F;&#x600E;&#x4E48;&#x5C11;&#x65F6;&#x8BF5;&#x8BD7;&#x4E66;&apos;</span><span class="token punctuation">,</span>
+
+                            slotType<span class="token operator">:</span> <span class="token string">&apos;appendSlot&apos;</span><span class="token punctuation">,</span>
+                            slotName<span class="token operator">:</span> <span class="token string">&apos;desc-append&apos;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        computed<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        watch<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token function">fetchProvinceData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword control-flow">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token parameter">resolve</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                label<span class="token operator">:</span> <span class="token string">&apos;&#x6D59;&#x6C5F;&#x7701;&apos;</span><span class="token punctuation">,</span>
+                                value<span class="token operator">:</span> <span class="token string">&apos;1&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">{</span>
+                                label<span class="token operator">:</span> <span class="token string">&apos;&#x6E56;&#x5357;&#x7701;&apos;</span><span class="token punctuation">,</span>
+                                value<span class="token operator">:</span> <span class="token string">&apos;2&apos;</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">fetchCityData</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> value <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword control-flow">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token parameter">resolve</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>value <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x676D;&#x5DDE;&#x5E02;&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token string">&apos;1-1&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x7ECD;&#x5174;&#x5E02;&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token string">&apos;1-2&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>value <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x957F;&#x6C99;&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token string">&apos;2-1&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+                            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">fetchDistrictData</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> value <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword control-flow">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token parameter">resolve</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>value <span class="token operator">==</span> <span class="token string">&apos;1-1&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x62F1;&#x5885;&#x533A;&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token string">&apos;1&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    label<span class="token operator">:</span> <span class="token string">&apos;&#x6EE8;&#x6C5F;&#x533A;&apos;</span><span class="token punctuation">,</span>
+                                    value<span class="token operator">:</span> <span class="token string">&apos;2&apos;</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+                            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">onSubmit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$refs</span><span class="token punctuation">[</span><span class="token string">&apos;myForm&apos;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">validate</span><span class="token punctuation">(</span><span class="token parameter">valid</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>valid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$message</span><span class="token punctuation">.</span><span class="token method function property-access">success</span><span class="token punctuation">(</span><span class="token string">&apos;submit&apos;</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">onReset</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$message</span><span class="token punctuation">.</span><span class="token method function property-access">success</span><span class="token punctuation">(</span><span class="token string">&apos;reset&apos;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">onUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function">handleReset</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$refs</span><span class="token punctuation">[</span><span class="token string">&apos;myForm3&apos;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>less<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+    <span class="token selector"><span class="token class">.DemoForm</span></span> <span class="token punctuation">{</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token selector">;
+        <span class="token class">.example</span></span> <span class="token punctuation">{</span>
+            <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token selector">;
+            <span class="token class">.result</span></span> <span class="token punctuation">{</span>
+                <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode color">#e5e5e5</span><span class="token punctuation">;</span>
+                <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+                <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token hexcode color">#ddd</span><span class="token punctuation">;</span>
+            <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">px</span><span class="token punctuation">;</span>
+            <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">12</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token selector"><span class="token class">.example-dialog</span></span> <span class="token punctuation">{</span>
+            <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">800</span><span class="token unit">px</span><span class="token punctuation">;</span>
+            <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token color">red</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token selector"><span class="token class">.form-item-status</span></span> <span class="token punctuation">{</span>
+            <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token selector"><span class="token class">.form-item-desc</span> <span class="token class">.el-form-item__label</span></span> <span class="token punctuation">{</span>
+            <span class="token property">white-space</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+            <span class="token property">text-overflow</span><span class="token punctuation">:</span> -o-ellipsis-lastline<span class="token punctuation">;</span>
+            <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+            <span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
+            <span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span>
+            <span class="token property">-webkit-line-clamp</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">;</span>
+            <span class="token property">line-clamp</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">;</span>
+            <span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> vertical<span class="token punctuation">;</span>
+            <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+            <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">40</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token selector"><span class="token class">.form-item-name</span> <span class="token class">.sg-data-form-field</span></span> <span class="token punctuation">{</span>
+            <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+            <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token selector">;
+            <span class="token class">.el-button</span></span> <span class="token punctuation">{</span>
+                <span class="token property">vertical-align</span><span class="token punctuation">:</span> top<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token selector"><span class="token class">.name-append</span></span> <span class="token punctuation">{</span>
+                <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

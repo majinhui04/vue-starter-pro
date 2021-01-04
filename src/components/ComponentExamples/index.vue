@@ -18,6 +18,8 @@ require('element-ui/lib/theme-chalk/index.css')
 const README_src = require('!file-loader?name=docs-dev/[name].[ext]!@/../docs/README.html')
 const axios使用规范_src = require('!file-loader?name=docs-dev/[name].[ext]!@/../docs/axios使用规范.html')
 const 环境变量使用规范_src = require('!file-loader?name=docs-dev/[name].[ext]!@/../docs/环境变量使用规范.html')
+
+const data_form_src = require('!file-loader?name=docs-dev/[name].[ext]!@/../docs/data-form.html')
 const requireCtx = require.context(
     '../ComponentExamples',
     false, // 不解析子文件夹
@@ -57,6 +59,7 @@ export default {
     },
     data() {
         return {
+            data_form_src,
             README_src,
             axios使用规范_src,
             环境变量使用规范_src,
@@ -69,6 +72,7 @@ export default {
         currLinkName() {
             const hashVal = this.$route.hash.slice(1)
             const hit = [
+                'data-form',
                 'axios使用规范',
                 '环境变量使用规范',
                 ...this.compNames,
@@ -212,6 +216,11 @@ export default {
                     :to="{ ...$route, hash: '#环境变量使用规范' }"
                     >环境变量使用规范</router-link
                 >
+                <router-link
+                    :class="$style.link"
+                    :to="{ ...$route, hash: '#data-form' }"
+                    >动态表单</router-link
+                >
             </div>
             <div :class="$style.linkGroup">
                 <router-link
@@ -240,6 +249,12 @@ export default {
                 v-else-if="currLinkName === '环境变量使用规范'"
                 :class="$style.iframe"
                 :src="环境变量使用规范_src"
+                @load="iframeOnLoad"
+            ></iframe>
+            <iframe
+                v-if="currLinkName === 'data-form'"
+                :class="$style.iframe"
+                :src="data_form_src"
                 @load="iframeOnLoad"
             ></iframe>
             <template v-else-if="currLinkIsComp">
