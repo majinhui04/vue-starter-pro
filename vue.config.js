@@ -7,12 +7,14 @@ const { join } = require('path')
 const { handleHtml, getPages, externals } = require('./build/utils')
 const env = process.env
 const isDev = env.VUE_APP_ENV === 'dev'
+const isMock = env.VUE_APP_MOCK === 'true'
 const isSPA = LocalConfig.mode === 'SPA'
 const isH5 = LocalConfig.platform === 'h5'
 const pages = getPages()
 const entry = isSPA ? {} : { pages }
 console.log('isSPA', isSPA)
 console.log('isH5', isH5)
+console.log('isMock', isMock)
 console.log('entry', entry)
 console.log('VUE_APP_ENV', env.VUE_APP_ENV)
 console.log('VUE_APP_BASEURL_API', env.VUE_APP_BASEURL_API)

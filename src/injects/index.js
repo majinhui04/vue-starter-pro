@@ -6,7 +6,7 @@
 import Vue from 'vue'
 import * as utils from '@/scripts/utils'
 import * as constants from '@/scripts/constants'
-import * as api from '@/api'
+import api from '@/api'
 import http from '@/scripts/http'
 import '@/components'
 
@@ -16,6 +16,35 @@ const SvgIcon = function() {
         /* webpackChunkName: "low-priority" */ '@/components/SvgIcon/index.vue'
     )
 }
+// api.delete_pub_core_dictionary_definitions_vid$({ vid: 11 })
+//api.post_pub_core_dictionary_definitions_page({ vid: 222 })
+// http.request({
+//     method: 'delete',
+//     url: '/api/pub/core/dictionary/definitions/{vid}',
+//     data: {
+//         vid: 1,
+//     },
+// })
+//     .then(console.log)
+//     .catch(console.error)
+// http.request({
+//     method: 'post',
+//     url: '/pub/core/dictionary/definitions/page/ss',
+//     data: {
+//         vid: 1,
+//     },
+// })
+//     .then(console.log)
+//     .catch(() => {})
+// http.request({
+//     method: 'post',
+//     url: '/pub/core/dictionary/definitions/page/ss',
+//     data: {
+//         vid: 1,
+//     },
+// })
+//     .then(console.log)
+//     .catch(() => {})
 Vue.prototype.$ShareGood = {
     DataView: {
         pagination: {

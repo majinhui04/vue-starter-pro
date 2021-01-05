@@ -68,7 +68,19 @@ export default {
         },
     },
     watch: {},
-    created() {},
+    created() {
+        // console.log(234567)
+        // this.$http
+        //     .request({
+        //         method: 'get',
+        //         url: '/pub/core/dictionary/definitions/page',
+        //         data: {
+        //             name: 1,
+        //         },
+        //     })
+        //     .then(console.log)
+        //     .catch(console.error)
+    },
     mounted() {},
     methods: {
         logout() {},

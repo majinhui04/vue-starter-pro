@@ -12,7 +12,7 @@ const isSystemError = function(err) {
 /* 捕获 Promise 的异常 */
 window.addEventListener('unhandledrejection', function(event) {
     const { reason } = event
-    console.log('unhandledrejection', event, reason, !isSystemError(reason))
+    //console.log('unhandledrejection', event, reason, !isSystemError(reason))
     if (process.env.VUE_APP_ENV === 'test') {
         // fundebug.notify('unhandledrejection', reason)
     }

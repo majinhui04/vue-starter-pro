@@ -28,6 +28,7 @@ export const createMock = (baseURL, isGroupOpened = false) =>
 
         Mock.mock(rurl, method, function(opts) {
             const urlParsed = urlParse(opts.url)
+
             /* query & body */
             const query = qs.parse(urlParsed.query.slice(1))
             const body = (() => {

@@ -4,6 +4,8 @@ import exShowErrMessage from './exShowErrMessage'
 import exConsole from './exConsole'
 import exData from './exData'
 import qs from 'qs'
+const { requestConfig } = require('@/settings')
+const { getResponseSuccess, ...axiosConfig } = requestConfig
 
 const axiosRetryInterceptor = function(err) {
     // console.log('axiosRetryInterceptor',err.data,err.data.flag)
@@ -66,13 +68,6 @@ const requestErrHandle = err => {
     throw err
 }
 
-const getResponseSuccess = function(result) {
-    if (result.flag === true) {
-        return true
-    } else {
-        return false
-    }
-}
 /**
  * 响应成功拦截
  * @param {import('axios').AxiosResponse} res
@@ -120,17 +115,7 @@ const responseErrHandle = err => {
 
 const http = createAxios(
     {
-        headers: {
-            // 'ssid':'123abc',
-            'X-Requested-With': 'XMLHttpRequest',
-            'Content-Type': 'application/json;charset=UTF-8',
-            //'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-        },
-        timeout: 10 * 1000, // 默认超时10s
-        baseURL: process.env.VUE_APP_BASEURL_API,
-        // withCredentials: true, // 每次请求携带cookies信息
-
-        // crossDomain: true,
+        ...axiosConfig,
     },
     instance => {
         instance.exHooks.add(exConsole)

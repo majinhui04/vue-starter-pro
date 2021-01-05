@@ -25,6 +25,12 @@ const transformData = function(data = {}) {
 
 export const exAuth = Object.freeze({
     onBefore(config) {
+        // 支持restful格式的api /news/detail/{id}
+        let body = config.params || config.data || config.body || {}
+        config.url = config.url.replace(/\{(.+?)\}/g, ($1, key) => {
+            let result = body[key] || ''
+            return result
+        })
         if (config.params) {
             transformData(config.params)
         }

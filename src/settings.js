@@ -1,6 +1,23 @@
 const menus = require('./menus')
+const requestConfig = {
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/json;charset=UTF-8',
+        //'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    },
+    timeout: 10 * 1000, // 默认超时10s
+    baseURL: process.env.VUE_APP_BASEURL_API,
+    getResponseSuccess(body) {
+        if (body.status) {
+            return true
+        } else {
+            return false
+        }
+    },
+}
 module.exports = {
     menus,
+    requestConfig,
     title: 'Vue Element Admin',
 
     /**

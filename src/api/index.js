@@ -1,14 +1,21 @@
-import http from '@/scripts/http'
-
-// 更新所有初始化状态的企业网格信息
-export const xxx = (params = {}) => {
-    params = {
-        ...params,
-    }
-    return http.download({
-        url: '/cus/grid/update-all-grid',
-        params: params,
-        method: 'get',
-        exShowLoading: true,
+const modules = {}
+const apis = {}
+const requireContext = require.context('@/api/modules', false, /\.js/)
+const requireAll = context => {
+    context.keys().forEach(key => {
+        modules[key] = requireContext(key).default || requireContext(key)
     })
 }
+
+requireAll(requireContext)
+
+Object.keys(modules).forEach(key => {
+    let target = modules[key]
+    Object.keys(target).forEach(name => {
+        let cb = target[name]
+
+        apis[name] = cb
+    })
+})
+
+export default apis

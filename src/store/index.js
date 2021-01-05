@@ -17,7 +17,7 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
     modules[moduleName] = value.default
     return modules
 }, {})
-console.log(11111, getters)
+
 /**
  * 全局唯一 Store 实例
  */
