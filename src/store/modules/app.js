@@ -1,4 +1,3 @@
-import * as API from '@/api'
 const state = {
     // 配置
     config: null,
@@ -12,30 +11,28 @@ const state = {
 }
 
 const mutations = {
-    // 配置
-    SET_CONFIG(state, data) {
-        state.config = data
+    TOGGLE_SIDEBAR: state => {
+        state.sidebar.opened = !state.sidebar.opened
+        state.sidebar.withoutAnimation = false
+        // if (state.sidebar.opened) {
+        //     Cookies.set('sidebarStatus', 1)
+        // } else {
+        //     Cookies.set('sidebarStatus', 0)
+        // }
     },
-    // 支行
-    SET_BANKS(state, data) {
-        state.banks = data
-    },
-    SET_OPTIONS(state, data) {
-        state.options = data
-    },
-    set_industry(state, data) {
-        state.industry = data
-    },
-    set_user(state, data) {
-        state.user = data
+    CLOSE_SIDEBAR: (state, withoutAnimation) => {
+        //Cookies.set('sidebarStatus', 0)
+        state.sidebar.opened = false
+        state.sidebar.withoutAnimation = withoutAnimation
     },
 }
 
 const actions = {
-    async SYNC_INIT({ commit, state }) {
-        // await this.dispatch('app/sync_user')
-        // await this.dispatch('app/SYNC_OPTIONS')
-        //console.log(12345678, vv, aa, this)
+    toggleSideBar({ commit }) {
+        commit('TOGGLE_SIDEBAR')
+    },
+    closeSideBar({ commit }, { withoutAnimation }) {
+        commit('CLOSE_SIDEBAR', withoutAnimation)
     },
 }
 

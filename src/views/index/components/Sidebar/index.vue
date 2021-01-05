@@ -1,12 +1,15 @@
 <template>
     <div :class="{ 'has-logo': showLogo }">
-        <div style="height:50px"></div>
-        <logo v-if="showLogo" :collapse="isCollapse" />
+        <div class="sidebar-fold-wrapper" @click="toggleSideBar">
+            <i class="el-icon-s-fold" v-if="!isCollapse"></i>
+            <i class="el-icon-s-unfold" v-else></i>
+        </div>
+
         <el-scrollbar wrap-class="scrollbar-wrapper">
             <el-menu
                 :default-active="activeMenu"
                 :collapse="isCollapse"
-                :background-color="'#304156'"
+                :background-color="'#1C2F4D'"
                 :text-color="'#bfcbd9'"
                 :unique-opened="false"
                 :active-text-color="'409EFF'"
@@ -14,7 +17,7 @@
                 mode="vertical"
             >
                 <sidebar-item
-                    v-for="route in menus"
+                    v-for="route in permission_menus"
                     :key="route.path"
                     :item="route"
                     :base-path="route.path"
@@ -36,16 +39,23 @@ export default {
         return {
             menus: [
                 {
+                    path: '/dashboard',
+                    meta: {
+                        title: '控制面板',
+                        icon: 'example1',
+                    },
+                },
+                {
                     path: '/demo',
                     meta: {
                         title: '测试',
+                        icon: 'el-icon-date',
                     },
                     children: [
                         {
                             path: '/demo/form',
                             meta: {
                                 title: '表单',
-                                icon: 'el-date',
                             },
                         },
                         {
@@ -60,10 +70,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters([
-            //'permission_routes',
-            'sidebar',
-        ]),
+        ...mapGetters(['permission_menus', 'sidebar']),
         activeMenu() {
             const route = this.$route
             const { meta, path } = route
@@ -81,6 +88,11 @@ export default {
         },
         isCollapse() {
             return !this.sidebar.opened
+        },
+    },
+    methods: {
+        toggleSideBar() {
+            this.$store.dispatch('app/toggleSideBar')
         },
     },
 }

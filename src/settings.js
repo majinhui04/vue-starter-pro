@@ -1,4 +1,6 @@
+const menus = require('./menus')
 module.exports = {
+    menus,
     title: 'Vue Element Admin',
 
     /**

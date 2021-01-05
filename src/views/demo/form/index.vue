@@ -644,7 +644,6 @@ export default {
 
 <style lang="less">
 .DemoForm {
-    padding: 20px;
     .example {
         margin-bottom: 20px;
         .result {
@@ -652,13 +651,12 @@ export default {
             padding: 10px 20px;
             margin-bottom: 30px;
         }
-        border: 1px solid #ddd;
+        // border: 1px solid #ddd;
         min-height: 50px;
         padding: 12px;
     }
     .example-dialog {
         width: 800px;
-        border: 1px solid red;
     }
     .form-item-status {
         text-align: center;
