@@ -3,12 +3,12 @@ const state = {
     // 配置
     config: null,
     user: null,
-    // app基础信息
-    banks: [],
-    // 查询配置
-    options: [],
-    // 所属行业
-    industry: [],
+    sidebar: {
+        opened: true,
+        withoutAnimation: false,
+    },
+    device: 'desktop',
+    size: 'medium',
 }
 
 const mutations = {

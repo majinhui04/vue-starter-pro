@@ -1,15 +1,15 @@
 /* eslint-disable */
-const DemoForm = () =>
-    import(/* webpackChunkName: "DemoForm" */ '@/views/demo/form')
+const Dashboard = () =>
+    import(/* webpackChunkName: "Dashboard" */ '@/views/dashboard')
 export default {
-    path: '/demo/form',
-    name: 'DemoForm',
-    component: DemoForm,
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
     meta: {
         bodyClass: '',
         parent: 'Index',
         rank: 1,
-        title: '表单',
+        title: '控制面板',
         auth: false,
         keepAlive: false,
         aliveOnlyTo: [],

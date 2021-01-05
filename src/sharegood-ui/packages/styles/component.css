@@ -42,6 +42,7 @@
 }
 .sg-data-form.column .sg-form-item {
     display: block;
+    width: 100%;
 }
 .sg-data-form.column .el-form-item__label {
     float: none;
@@ -50,6 +51,9 @@
 }
 .sg-data-form-footer {
     text-align: center;
+}
+.sg-data-form .el-button {
+    vertical-align: top;
 }
 /* .sg-data-form-field .el-textarea textarea:read-only,
 .sg-data-form-field .el-input input[readonly='true'] {

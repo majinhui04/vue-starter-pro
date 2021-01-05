@@ -12,7 +12,6 @@
             <div class="sg-data-form-header">
                 <slot name="header"></slot>
             </div>
-
             <template v-for="(row, index) in rows">
                 <el-row
                     :key="index"
@@ -48,16 +47,16 @@
                                 >
                                     <template
                                         slot="inputSlot"
-                                        v-if="field.slotType == 'inputSlot'"
+                                        v-if="field.slotType"
                                     >
                                         <slot :name="field.slotName"></slot>
                                     </template>
 
                                     <template
                                         slot="appendSlot"
-                                        v-if="field.slotType == 'appendSlot'"
+                                        v-if="field.appendSlot"
                                     >
-                                        <slot :name="field.slotName"></slot>
+                                        <slot :name="field.appendSlot"></slot>
                                     </template>
                                 </component>
                             </el-form-item>
@@ -233,7 +232,7 @@ export default {
     },
     computed: {
         exAttrs() {
-               return this.$attrs
+            return this.$attrs
         },
     },
     watch: {

@@ -6,6 +6,7 @@
             @input="onInputEvent"
             v-bind="$attrs"
             v-on="$listeners"
+            autocomplete="off"
         >
             <slot :slot="slotType" name="inputSlot"></slot>
         </el-input>

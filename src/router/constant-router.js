@@ -33,11 +33,11 @@ if (process.env.VUE_APP_ENV === 'dev' || process.env.VUE_APP_ENV === 'test') {
             window.open(router.resolve(to.fullPath).href)
         },
     })
-    routes.unshift({
-        path: '/',
-        name: 'debug',
-        meta: { title: '调试' },
-        component: () => import('@/views/About.vue'),
-    })
+    // routes.unshift({
+    //     path: '/',
+    //     name: 'debug',
+    //     meta: { title: '调试' },
+    //     component: () => import('@/views/About.vue'),
+    // })
 }
 export default routes

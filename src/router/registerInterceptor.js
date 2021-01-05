@@ -25,10 +25,15 @@ export default function(router) {
     })
     /* 页面标题处理 */
     router.afterEach(to => {
-        let { title } = to.meta
+        let { title, bodyClass } = to.meta
         title = typeof title === 'function' ? title(to) : title
         if (title) {
             document.title = title
+        }
+        if (bodyClass) {
+            document.body.className = bodyClass
+        } else {
+            document.body.className = ''
         }
     })
 }
