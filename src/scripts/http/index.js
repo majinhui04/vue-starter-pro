@@ -5,7 +5,12 @@ import exConsole from './exConsole'
 import exData from './exData'
 import qs from 'qs'
 const { requestConfig } = require('@/settings')
-const { getResponseSuccess, ...axiosConfig } = requestConfig
+const {
+    isResponseSuccess,
+    getResponseError,
+    getResponseSuccess,
+    ...axiosConfig
+} = requestConfig
 
 const axiosRetryInterceptor = function(err) {
     // console.log('axiosRetryInterceptor',err.data,err.data.flag)
@@ -86,7 +91,7 @@ const responseHandle = function(response) {
                 const result = JSON.parse(
                     Buffer.from(response.data).toString('utf8'),
                 )
-                if (getResponseSuccess(result)) {
+                if (isResponseSuccess(result)) {
                     return Promise.resolve(result)
                 } else {
                     result.code = -1
@@ -101,10 +106,10 @@ const responseHandle = function(response) {
         }
     }
 
-    if (getResponseSuccess(response.data)) {
-        return Promise.resolve(response.data)
+    if (isResponseSuccess(response.data)) {
+        return getResponseSuccess(response.data)
     } else {
-        return Promise.reject(response.data)
+        return getResponseError(response.data)
     }
 }
 

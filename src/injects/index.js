@@ -16,6 +16,21 @@ const SvgIcon = function() {
         /* webpackChunkName: "low-priority" */ '@/components/SvgIcon/index.vue'
     )
 }
+// api.post(
+//     '/api/pub/core/dictionary-definitions',
+//     { name: 1 },
+//     { exShowLoading: true },
+// )
+//     .then(console.log)
+//     .catch(console.error)
+api.delete(
+    '/api/pub/core/dictionary-definitions/{vid}',
+    { vid: 1 },
+    { exShowLoading: true },
+)
+    .then(console.log)
+    .catch(console.error)
+//api.post_api_pub_core_dictionary_definitions_vid$({ vid: 11 })
 // api.delete_pub_core_dictionary_definitions_vid$({ vid: 11 })
 //api.post_pub_core_dictionary_definitions_page({ vid: 222 })
 // http.request({

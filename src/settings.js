@@ -7,12 +7,20 @@ const requestConfig = {
     },
     timeout: 10 * 1000, // 默认超时10s
     baseURL: process.env.VUE_APP_BASEURL_API,
-    getResponseSuccess(body) {
+    isResponseSuccess(body) {
         if (body.status) {
             return true
         } else {
             return false
         }
+    },
+    getResponseSuccess(res) {
+        const data = res.successfulPayload || {}
+        return Promise.resolve({ data })
+    },
+    getResponseError(res) {
+        const { data = {}, code, message } = res
+        return Promise.reject({ data, code, message })
     },
 }
 module.exports = {

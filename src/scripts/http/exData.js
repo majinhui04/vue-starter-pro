@@ -31,6 +31,16 @@ export const exAuth = Object.freeze({
             let result = body[key] || ''
             return result
         })
+        // body字段转化
+        const method = config.method
+        if (config.body) {
+            if (['delete', 'get', 'head', 'options'].indexOf(method) > -1) {
+                config.params = config.body
+            } else {
+                config.data = config.body
+            }
+        }
+
         if (config.params) {
             transformData(config.params)
         }
@@ -39,19 +49,16 @@ export const exAuth = Object.freeze({
         }
     },
     onComplete(config, isResolve, resOrErr) {
-        // 登录失效
-        if (resOrErr.code == '300') {
-            try {
-                if (window.parent) {
-                    window.parent.postMessage(
-                        { type: 'logout', message: '登录失效' },
-                        '*',
-                    )
-                }
-            } catch (err) {
-                console.warn(err)
-            }
-        }
+        // if (isResolve) {
+        //     const data = resOrErr.successfulPayload || {}
+        //     return { data }
+        // } else {
+        //     const { data = {}, code } = resOrErr
+        //     return {
+        //         code,
+        //         data,
+        //     }
+        // }
     },
 })
 

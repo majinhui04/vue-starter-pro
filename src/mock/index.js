@@ -16,37 +16,33 @@ requireAll(requireContext)
 Object.keys(modules).forEach(key => {
     let target = modules[key]
     Object.keys(target).forEach(name => {
-        let cb = target[name]
-        let names = name.split('_')
-        let method = names.splice(0, 1)[0]
-        let hasSuffix = false
-        let uri = names
-            .map(name => {
-                if (name.indexOf('$') > -1) {
-                    hasSuffix = true
-                    return ''
-                } else {
-                    return '/' + name
-                }
-            })
-            .join('')
-
-        let suffix = hasSuffix ? '/.+' : ''
-        let reg = `reg:${uri}${suffix}`
+        let result = target[name]
+        let { url, method, onSuccess } = result
+        var r = /\/\{.*?\}/g
+        let suffix = r.test(url) ? '/.+' : ''
+        url = url.replace(r, '')
+        let reg = `reg:${url}${suffix}`
         apis.push({
-            uri,
-            name,
-            cb,
             method,
             reg,
+            onSuccess,
         })
     })
 })
-
+console.log('[mock apis]', apis)
 for (let api of apis) {
-    myMock(api.reg, api.method, api.cb)
+    myMock(api.reg, api.method, api.onSuccess)
 }
 /* 统一在这里注册 */
 //myMock('reg:/news/getList\\?.+', 'get', news.getList)
 // myMock('reg:/news/getList', 'post', news.getList)
 // myMock('reg:/news/getDetails/.+', news.getDetails)
+
+// myMock('reg:/api/pub/core/dictionary-definitions', 'post', function() {
+//     return {
+//         status: true,
+//         successfulPayload: {
+//             message: 'ok',
+//         },
+//     }
+// })
