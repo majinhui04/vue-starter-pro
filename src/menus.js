@@ -2,8 +2,8 @@ module.exports = [
     {
         path: '/dashboard',
         meta: {
-            title: '控制面板',
-            icon: 'example2',
+            title: '首\u2002\u2002\u2002页',
+            icon: 'iconfont iconshouye',
         },
     },
     {
@@ -24,6 +24,28 @@ module.exports = [
                 path: '/demo/table',
                 meta: {
                     title: '表格',
+                },
+            },
+        ],
+    },
+    {
+        path: '/system',
+        meta: {
+            title: '系统管理',
+            icon: 'el-icon-date',
+        },
+        alwaysShow: true,
+        children: [
+            {
+                path: '/system/role',
+                meta: {
+                    title: '角色管理',
+                },
+            },
+            {
+                path: '/system/role1',
+                meta: {
+                    title: '角色管理111',
                 },
             },
         ],

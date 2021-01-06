@@ -36,38 +36,10 @@ import SidebarItem from './SidebarItem'
 export default {
     components: { SidebarItem, Logo },
     data() {
-        return {
-            menus: [
-                {
-                    path: '/dashboard',
-                    meta: {
-                        title: '控制面板',
-                        icon: 'example1',
-                    },
-                },
-                {
-                    path: '/demo',
-                    meta: {
-                        title: '测试',
-                        icon: 'el-icon-date',
-                    },
-                    children: [
-                        {
-                            path: '/demo/form',
-                            meta: {
-                                title: '表单',
-                            },
-                        },
-                        {
-                            path: '/demo/table',
-                            meta: {
-                                title: '表格',
-                            },
-                        },
-                    ],
-                },
-            ],
-        }
+        return {}
+    },
+    mounted() {
+        console.log('permission_menus', this.permission_menus)
     },
     computed: {
         ...mapGetters(['permission_menus', 'sidebar']),

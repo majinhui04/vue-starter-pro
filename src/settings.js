@@ -19,7 +19,8 @@ const requestConfig = {
         return Promise.resolve({ data })
     },
     getResponseError(res) {
-        const { data = {}, code, message } = res
+        let { data, code, message } = res
+        data = res.unsuccessfulPayload || {}
         return Promise.reject({ data, code, message })
     },
 }

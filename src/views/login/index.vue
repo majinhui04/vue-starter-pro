@@ -1,13 +1,15 @@
 <template>
     <div class="sg-page Login">
         <nav class="navbar"></nav>
-        <div class="main-container">
+        <div class="login-container">
             <div class="login-form sg-flexbox">
                 <div class="login-form-left">
-                    <div class="login-form-title">金融平台后台管理系统</div>
+                    <div class="login-form-title">
+                        金融平台后台管理系统
+                    </div>
                     <div class="login-form-cover">
                         <img
-                            src="https://www.fanruan.com/images/active-bg-fr.png"
+                            src="./assets/img/active-bg-fr.png"
                             alt=""
                             width="90%"
                         />
@@ -41,27 +43,23 @@
                                 class="my-hidden"
                             />
                         </div>
-                        <i
-                            slot="loginNamePrefix"
-                            class="el-input__icon el-icon-date"
-                        >
-                        </i>
-                        <i
-                            slot="passwordPrefix"
-                            class="el-input__icon el-icon-date"
-                        >
-                        </i>
-                        <i
-                            slot="codePrefix"
-                            class="el-input__icon el-icon-date"
-                        >
-                        </i>
+                        <span slot="loginNamePrefix" class="my-icon-box">
+                            <i class="iconfont iconzhanghao"> </i>
+                        </span>
+                        <span slot="passwordPrefix" class="my-icon-box">
+                            <i class="iconfont iconmima"> </i>
+                        </span>
+                        <span slot="codePrefix" class="my-icon-box">
+                            <i class="iconfont iconyanzhengma"> </i>
+                        </span>
+
                         <div slot="codeSlot" class="my-code">
                             <el-button>获取验证码</el-button>
                         </div>
 
-                        <div slot="footer">
+                        <div slot="footer" class="my-login-form-footer">
                             <el-button
+                                :disabled="!LoginView.valid"
                                 type="primary"
                                 class="my-login-form-submit"
                                 size="large"
@@ -82,6 +80,7 @@ export default {
     data() {
         return {
             LoginView: {
+                valid: false,
                 model: {
                     resource: '',
                     rate: 4,
@@ -180,6 +179,26 @@ export default {
     background-color: #dce9f5;
 }
 .Login {
+    .my-icon-box {
+        display: inline-block;
+
+        height: 100%;
+        padding-right: 10px;
+        padding-left: 7px;
+        ::after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 20%;
+            border-right: 1px solid #ddd;
+            height: 60%;
+            width: 1px;
+        }
+    }
+    .my-login-form-footer {
+        padding-top: 35px;
+    }
     .my-hidden {
         position: fixed;
         left: -99999px;
@@ -189,7 +208,7 @@ export default {
         min-height: 50px;
         // margin-bottom: 20px;
     }
-    .main-container {
+    .login-container {
         width: 800px;
         margin: 0 auto;
     }
@@ -197,9 +216,9 @@ export default {
         background-color: #fff;
         .login-form-left {
             height: 450px;
-            width: 48%;
-            background: url('https://www.fanruan.com/images/active-bg.png')
-                no-repeat center center;
+            width: 55%;
+            background: url('./assets/img/active-bg.png') no-repeat center
+                center;
             background-size: cover;
             color: #fff;
 
@@ -234,7 +253,11 @@ export default {
                 }
             }
             .my-login-form-submit {
-                width: 240px;
+                width: 100%;
+                border-radius: 26px;
+            }
+            .el-input--prefix .el-input__inner {
+                padding-left: 45px;
             }
         }
     }

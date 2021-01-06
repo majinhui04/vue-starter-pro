@@ -28,12 +28,12 @@ export const store = new Vuex.Store({
     /* module 应该启用命名空间，即 namespaced: true */
     modules,
     getters,
-    plugins: [
-        createPersistedState({
-            //paths: ['app.update', 'app.auto_buy', 'order', 'user'],
-            storage: window.sessionStorage,
-        }),
-    ],
+    // plugins: [
+    //     createPersistedState({
+    //         //paths: ['app.update', 'app.auto_buy', 'order', 'user'],
+    //         storage: window.sessionStorage,
+    //     }),
+    // ],
 })
 
 export default store

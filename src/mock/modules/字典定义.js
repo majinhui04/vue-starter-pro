@@ -5,10 +5,15 @@ export const deleteDictionaryDefinitions = Object.freeze({
     method: 'delete',
     onSuccess() {
         return mock({
-            status: true,
+            code: 1,
+            status: false,
+            unsuccessfulPayload: {
+                name: 2,
+            },
             successfulPayload: {
                 name: 1,
             },
+            message: '请求失败1111',
         })
     },
 })
@@ -18,8 +23,9 @@ export const postDictionaryDefinitions = Object.freeze({
     onSuccess() {
         return mock({
             status: true,
+            unsuccessfulPayload: {},
             successfulPayload: {
-                total: 2,
+                total: 10,
                 'list|10': [
                     {
                         note: '@name',

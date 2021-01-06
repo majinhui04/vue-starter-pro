@@ -6,10 +6,9 @@ export default function(router) {
     if (router._registerInterceptor) return
     router._registerInterceptor = true
 
-    const whiteList = ['/404', '/500', '/login']
     router.beforeEach((to, from, next) => {
         const meta = to.meta || {}
-        if (whiteList.indexOf(to.path) > -1 || meta.requireData) {
+        if (meta.requireData) {
             store
                 .dispatch('app/SYNC_INIT')
                 .then(() => {
